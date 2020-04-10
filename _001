@@ -1,0 +1,40 @@
+float rotation=0;
+
+void setup() {
+  size(displayWidth,displayHeight, P3D);
+  background(255);
+}
+
+
+void draw() {
+  frameRate (300);
+  background(255);
+  lights();
+  
+  //float orbitRadius= mouseX/2+50;
+  float ypos= mouseY/4;
+  float orbitRadius= displayWidth/20;
+  //float ypos= displayHeight/8;
+  float xpos= cos(radians(rotation))*orbitRadius;
+  float zpos= sin(radians(rotation))*orbitRadius;
+  
+  //camera(xpos, ypos, zpos, -100, -100, 0, 0, -1, 0);
+  camera(xpos, ypos, zpos, 0, 0, 0, 0, -1, 0);
+
+ //translate(500,500,0);
+  //sphereDetail(100);
+  noFill();
+  sphereDetail(mouseX/25);
+  sphere(25);
+ // box(25);
+
+  rotation++;
+}
+  
+  void keyPressed(){
+  if(key == 's'){
+    saveFrame("screen-####.jpg");
+    println("saved.");
+  }
+}
+  
